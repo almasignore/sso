@@ -1,0 +1,10 @@
+.git
+.vscode/
+.idea/
+.env
+*.exe
+*.log
+storage/
+*.db
+*.db-shm
+*.db-wal
