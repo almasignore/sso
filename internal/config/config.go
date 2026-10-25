@@ -13,6 +13,7 @@ type Config struct {
 	StoragePath string        `yaml:"storage_path" env-required:"true"`
 	TokenTTL    time.Duration `yaml:"token_ttl" env-required:"true"`
 	GRPC        GRPCConfig    `yaml:"grpc"`
+	HTTP        HTTPConfig    `yaml:"http"`
 }
 
 type GRPCConfig struct {
@@ -60,4 +61,9 @@ func MustLoadByPath(configPath string) *Config {
 
 	return &cfg
 
+}
+
+type HTTPConfig struct {
+	Port    int           `yaml:"port"`
+	Timeout time.Duration `yaml:"timeout"`
 }
