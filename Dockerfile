@@ -16,6 +16,15 @@ RUN --mount=type=cache,target=/root/.cache/go-build \
     CGO_ENABLED=1 GOOS=linux go build -o /app/migrator ./cmd/migrator
 
 
+
+# Stage для запуска тестов
+FROM builder AS tester
+
+CMD ["go", "test", "./..."]
+
+
+
+# Финальный образ приложения
 FROM alpine:3.22
 
 RUN apk add --no-cache ca-certificates
