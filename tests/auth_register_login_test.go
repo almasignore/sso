@@ -6,7 +6,7 @@ import (
 
 	"time"
 
-	ssov1 "github.com/GolangLessons/protos/gen/go/sso"
+	ssov1 "github.com/almasignore/protos/gen/go/sso"
 	"github.com/brianvoe/gofakeit/v6"
 	"github.com/golang-jwt/jwt"
 	"github.com/stretchr/testify/assert"

@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"testing"
 
-	ssov1 "github.com/GolangLessons/protos/gen/go/sso"
+	ssov1 "github.com/almasignore/protos/gen/go/sso"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

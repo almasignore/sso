@@ -6,10 +6,11 @@ import (
 
 	"sso/internal/storage"
 
-	ssov1 "github.com/GolangLessons/protos/gen/go/sso"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+
+	ssov1 "github.com/almasignore/protos/gen/go/sso"
 )
 
 const (
