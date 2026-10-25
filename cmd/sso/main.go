@@ -20,8 +20,9 @@ func main() {
 
 	log := setupLogger(cfg.Env)
 
-	application := app.New(log, cfg.GRPC.Port, cfg.StoragePath, cfg.TokenTTL)
-	application.GRPCSrv.MustRun()
+	application := app.New(log, cfg.GRPC.Port, cfg.HTTP.Port, cfg.StoragePath, cfg.TokenTTL)
+	go application.GRPCSrv.MustRun()
+	go application.HTTPSrv.MustRun()
 
 	stop := make(chan os.Signal, 1)
 	signal.Notify(stop, syscall.SIGTERM, syscall.SIGINT)
@@ -29,6 +30,7 @@ func main() {
 	<-stop
 
 	application.GRPCSrv.Stop()
+	application.HTTPSrv.Stop()
 
 	log.Info(("application stopped"))
 
